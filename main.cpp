@@ -68,7 +68,7 @@ using namespace std;
 // --------------------------------------------------------------
 
 // volume size to synthesize (sz^3)
-const int   sz = 32;
+const int   sz = 16;
 
 // name of the problem (files in subdirectory exemplars/)
 string problem = "towers";
@@ -747,7 +747,7 @@ void solve3D()
   int num_failed    = 0;
   int num_success   = 0;
   int num_passes    = 2*sz; /// increases on larger domains.
-  int num_sub_synth = 64;
+  int num_sub_synth = 32;
   ForIndex(p, num_passes) {
     ForIndex(n, num_sub_synth) {
       // random size
