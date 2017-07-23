@@ -26,14 +26,14 @@ For instance, we can use two labels to produce H shapes: vertical pillars (red) 
 </p>
 
 The constraints are fairly simple in this case:
-- red can be above ground 
-- red can be left/right of white, 
-- red can be above/below red, 
-- white can be left/right of white
-- plus all the cases with the 'empty' label. 
+- Red can be above ground,
+- Red can be above/below red, 
+- Red can be left/right of white, 
+- White can be left/right of white
+- Plus all the cases with the 'empty' label. 
 Everything else is forbidden.
 
-The synthesized result reveals an interesting issue: there are red pillars without a white horizontal bar. The reason is that red can be a neighbor with empty along all its faces but below (below only admits red or ground). This it can appear as a single pillar.
+The synthesized result reveals an interesting issue: there are red pillars without a white horizontal bar. The reason is that red can be a neighbor with empty along all its faces but below (which only admits red or ground). Thus, it can appear as a single pillar.
 How can we avoid this? We need to introduce corner labels, preventing red to exist alone:
 
 <p align="center">
@@ -41,8 +41,7 @@ How can we avoid this? We need to introduce corner labels, preventing red to exi
 	<img src="images/blog2_synth.jpg" width=200>
 </p>
 
-Now a red pillar can only be terminated by green or blue, and white only exists right of green or left of blue. This means the synthesize can only produce inverted U shapes.
-It would be nice though to allow for pillar in the middle. To allow for this, we add a third label creating a T junction:
+Now a red pillar can only be terminated by green or blue, and white only exists right of green or left of blue. This means the synthesizer can only produce inverted U shapes. It would be nice though to allow for pillars in the middle. We add a third (yellow) label creating a T junction:
 
 <p align="center">
 	<img src="images/blog3_ex.jpg" width=200>
