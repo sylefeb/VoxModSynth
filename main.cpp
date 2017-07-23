@@ -10,9 +10,11 @@
 // - pallete index 255 is empty, 254 is ground.
 // - input files are in subdir exemplars/
 // - output is produced in subdir results/
+//    results/synthesized.slab.vox is the synthesized labeling
+//    results/synthesized_detailed.slab.vox is the output using detailed tiles
 //
 // For more details on model synthesis:
-// - http://graphics.stanford.edu/~pmerrell/ (Example-Based Model Synthesis)
+// - http://graphics.stanford.edu/~pmerrell/
 // - https://github.com/mxgmn/WaveFunctionCollapse
 // 
 // The goal is to keep it short, efficient, and (relatively) clear.
