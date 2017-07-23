@@ -74,8 +74,8 @@ So by now you hopefully get the basic idea of how to specify constraints to allo
 After some experiments, I was able to produce the following case (exemplars/towers.slab.vox), also shown above as a 3D printed result:
 
 <p align="center">
-	<img src="images/towers_ex_low.jpg" width=200>
-	<img src="images/towers_ex.jpg" width=200>
+	<img src="images/towers_ex_low.jpg" width=100>
+	<img src="images/towers_ex.jpg" width=100>
 	<img src="images/towers_2.jpg" width=200>
 	<img src="images/towers_3.jpg" width=200>
 	<img src="images/towers_3.jpg" width=200>
