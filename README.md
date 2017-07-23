@@ -79,11 +79,11 @@ This guarantees that a set of stairs will climb to any level, while giving enoug
 
 Can you generate other fully walkable cases? 
 
-## Learn more
+## References
 
 For more details on model synthesis:
 - http://graphics.stanford.edu/~pmerrell/ (Example-Based Model Synthesis)
-- https://github.com/mxgmn/WaveFunctionCollapse
+- https://github.com/mxgmn/WaveFunctionCollapse (many details, full implementation with a very nice visualization, inspired me to work again on this)
  
 ## Limitations
 - All labels are currently equiprobable (will be updated soon)
