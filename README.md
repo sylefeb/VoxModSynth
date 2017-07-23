@@ -1,9 +1,6 @@
 # VoxModSynth
 A simple, efficient, easily hackable C++ implementation of 3d model synthesis / wave function collapse
 
-Sylvain Lefebvre 
-@sylefeb
-
 ![A 3D printed, fully walkable, self-supporting castle](images/towers_1.jpg?raw=true "A 3D printed, fully walkable, self-supporting castle")
 
 ## Input / output
@@ -26,3 +23,9 @@ For more details on model synthesis:
  
 ## Limitations
 - All labels are currently equiprobable (will be updated soon)
+
+## Author
+
+Sylvain Lefebvre 
+@sylefeb
+
