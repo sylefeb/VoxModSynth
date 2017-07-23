@@ -26,8 +26,8 @@ For instance, we can use two labels to produce H shapes: vertical pillars (red) 
 </p>
 
 The constraints are fairly simple in this case:
-- Red can be above ground,
-- Red can be above/below red, 
+- Red can be just above ground,
+- Red can be just above/below red, 
 - Red can be left/right of white, 
 - White can be left/right of white
 - Plus all the cases with the 'empty' label. 
