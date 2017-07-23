@@ -23,6 +23,7 @@ For instance, we can use two labels to produce H shapes: vertical pillars (red) 
 <p align="center">
 	<img src="images/blog1_ex.jpg" width=200>
 	<img src="images/blog1_synth.jpg" width=200>
+	<br><b>Left:</b> Exemplar given as input. <b>Right:</b> Synthesized output.
 </p>
 
 The constraints are fairly simple in this case:
@@ -39,6 +40,7 @@ How can we avoid this? We need to introduce corner labels, preventing red to exi
 <p align="center">
 	<img src="images/blog2_ex.jpg" width=200>
 	<img src="images/blog2_synth.jpg" width=200>
+	<br><b>Left:</b> Exemplar given as input. <b>Right:</b> Synthesized output.
 </p>
 
 Now a red pillar can only be terminated by green or blue, and white only exists right of green or left of blue. This means the synthesizer can only produce inverted U shapes. It would be nice though to allow for pillars in the middle. We add a third (yellow) label creating a T junction:
@@ -46,6 +48,7 @@ Now a red pillar can only be terminated by green or blue, and white only exists 
 <p align="center">
 	<img src="images/blog3_ex.jpg" width=200>
 	<img src="images/blog3_synth.jpg" width=200>
+	<br><b>Left:</b> Exemplar given as input. <b>Right:</b> Synthesized output.
 </p>
 
 We can also allow the white bars to connect sideways:
@@ -53,6 +56,7 @@ We can also allow the white bars to connect sideways:
 <p align="center">
 	<img src="images/blog4_ex.jpg" width=200>
 	<img src="images/blog4_synth.jpg" width=200>
+	<br><b>Left:</b> Exemplar given as input. <b>Right:</b> Synthesized output.
 </p>
 
 Now we will give it a better 3D flavor, by introducing horizontal bars in the other direction:
@@ -60,6 +64,7 @@ Now we will give it a better 3D flavor, by introducing horizontal bars in the ot
 <p align="center">
 	<img src="images/blog5_ex.jpg" width=200>
 	<img src="images/blog5_synth.jpg" width=200>
+	<br><b>Left:</b> Exemplar given as input. <b>Right:</b> Synthesized output.
 </p>
 
 Interesting, but these long red bars do not look too good. Let's modify the exemplar to prevent red from stacking upon itself, which will restrict vertical bars to length one. To do this, I create in the exemplar the stacking I am expecting, ensuring red does not appear above itself.
@@ -67,6 +72,7 @@ Interesting, but these long red bars do not look too good. Let's modify the exem
 <p align="center">
 	<img src="images/blog6_ex.jpg" width=200>
 	<img src="images/blog6_synth.jpg" width=200>
+	<br><b>Left:</b> Exemplar given as input. <b>Right:</b> Synthesized output.
 </p>
 
 So by now you hopefully get the basic idea of how to specify constraints to allow/disallow some behaviors. This turns into quite a fascinating puzzle game. To make it look good, it is important to replace voxels by detailed 3d tiles (the code can do that).
