@@ -60,6 +60,7 @@ THE SOFTWARE.
 #include <map>
 #include <queue>
 #include <limits>
+#include <cstring>
 
 // --------------------------------------------------------------
 
