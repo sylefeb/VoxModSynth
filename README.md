@@ -78,7 +78,7 @@ After some experiments, I was able to produce the following case (exemplars/towe
 	<img src="images/towers_ex.jpg" width=100>
 	<img src="images/towers_2.jpg" width=200>
 	<img src="images/towers_3.jpg" width=200>
-	<img src="images/towers_3.jpg" width=200>
+	<img src="images/towers_4.jpg" width=200>
 	<br>
 	<b>From left to right:</b> Voxel exemplar, detailed version, three results (24^3 voxel synthesis, 8^3 tiles)
 </p>
