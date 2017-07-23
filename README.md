@@ -1,7 +1,10 @@
 # VoxModSynth
 A simple, efficient, easily hackable C++ implementation of 3d model synthesis / wave function collapse
 
-![A 3D printed, fully walkable, self-supporting castle](images/towers_1.jpg?raw=true "A 3D printed, fully walkable, self-supporting castle")
+<p align="center">
+	<img alt="knots" src="images/towers_1.jpg" width=500>
+ <br>A 3D printed, fully walkable, self-supporting castle
+</p>
 
 ## Input / output
 
