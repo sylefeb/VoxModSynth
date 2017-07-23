@@ -24,8 +24,5 @@ For more details on model synthesis:
 ## Limitations
 - All labels are currently equiprobable (will be updated soon)
 
-## Author
-
-Sylvain Lefebvre 
 @sylefeb
 
