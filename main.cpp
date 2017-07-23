@@ -68,13 +68,18 @@ using namespace std;
 // --------------------------------------------------------------
 
 // volume size to synthesize (sz^3)
-const int   sz = 16;
+const int   sz = 32;
+
 // name of the problem (files in subdirectory exemplars/)
 string problem = "towers";
 // string problem = "simple";
 // string problem = "flat";
+// string problem = "blog6";
+
 // name of the tilemap (files in subdirectory exemplars/)
 string tilemap = "castle";
+// string tilemap = ""; // none
+
 // synthesize a periodic structure? (only makes sense if not using borders!)
 const bool  periodic = false;
 
@@ -722,7 +727,7 @@ void solve3D()
   ForIndex(p, num_passes) {
     ForIndex(n, num_sub_synth) {
       // random size
-      int subsz = min(15, 8 + (rand() % (sz - 8)));
+      int subsz = min(15, 8 + (rand() % 8));
       // random location
       // (forces the first pass to be on the ground, as many problems have ground constraints)
       AAB<3, int> sub;
