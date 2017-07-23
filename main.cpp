@@ -748,11 +748,11 @@ void solve3D()
   int num_failed    = 0;
   int num_success   = 0;
   int num_passes    = sz; // increases on larger domains.
-  int num_sub_synth = 64; // will use twice that on ground level
+  int num_sub_synth = 32; // will use twice that on ground level
   ForIndex(p, num_passes) {
     ForIndex(n, p == 0 ? 2 * num_sub_synth : num_sub_synth) {
       // random size
-      int subsz = min(15, 8 + (rand() % 8));
+      int subsz = min(15, 8 + (rand() % 9));
       // random location
       // (forces the first pass to be on the ground, as many problems have ground constraints)
       AAB<3, int> sub;
