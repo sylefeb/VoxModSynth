@@ -746,10 +746,10 @@ void solve3D()
   //// synthesize subsets
   int num_failed    = 0;
   int num_success   = 0;
-  int num_passes    = 2*sz; /// increases on larger domains.
-  int num_sub_synth = 32;
+  int num_passes    = sz; // increases on larger domains.
+  int num_sub_synth = 64; // will use twice that on ground level
   ForIndex(p, num_passes) {
-    ForIndex(n, num_sub_synth) {
+    ForIndex(n, p == 0 ? 2 * num_sub_synth : num_sub_synth) {
       // random size
       int subsz = min(15, 8 + (rand() % 8));
       // random location
@@ -768,7 +768,7 @@ void solve3D()
         // try synthesizing (may fail)
         int num_solids;
         if (synthesize(S, pal2id[255]/*empty*/, num_solids, sub)) {
-          if (num_solids >= num_solids_before) {
+          if (num_solids >= num_solids_before) { // only accept if less (or eq) non empty appear
             num_success++;
           } else {
             num_failed++;
@@ -816,7 +816,7 @@ int main(int argc, char **argv)
     srand(time(NULL));
     
     // let's synthesize!
-    std::cerr << Console::white << "Synthesizing a 3D voxel model!" << Console::gray << std::endl << std::endl;
+    std::cerr << Console::white << "Synthesizing a voxel model!" << Console::gray << std::endl << std::endl;
     solve3D();
 
   } catch (Fatal& e) {
