@@ -71,9 +71,17 @@ Interesting, but these long red bars do not look too good. Let's modify the exem
 
 So by now you hopefully get the basic idea of how to specify constraints to allow/disallow some behaviors. This turns into quite a fascinating puzzle game. To make it look good, it is important to replace voxels by nice detailed 3d tiles (the provided code can do that).
 
-After some experiments, I was able to produce the following case, also shown above as a 3D printed result:
+After some experiments, I was able to produce the following case (exemplars/towers.slab.vox), also shown above as a 3D printed result:
 
-<exemplar>  <synthesized> 
+<p align="center">
+	<img src="images/towers_ex_low.jpg" width=100>
+	<img src="images/towers_ex.jpg" width=100>
+	<img src="images/towers_2.jpg" width=200>
+	<img src="images/towers_3.jpg" width=200>
+	<img src="images/towers_3.jpg" width=200>
+	<br>
+	<b>From left to right:</b> Voxel exemplar, detailed version, three results (24^3 voxel synthesis, 8^3 tiles)
+</p>
 
 This guarantees that a set of stairs will climb to any level, while giving enough freedom to produce interesting examples. It is quite puzzling that local constraints can be used to guarantee the output is fully connected, self-supporting (for 3d printing) and that all locations are accessible, across all synthesized instances.
 
