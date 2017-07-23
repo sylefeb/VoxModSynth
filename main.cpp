@@ -381,13 +381,33 @@ bool reinit_sub(Array3D<Presence>& S, int lbl_empty, AAB<3, int> sub)
 
 /* -------------------------------------------------------- */
 
+// Counts the number of non empty labels in a sub domain (ignoring border)
+int num_solids_sub(Array3D<Presence>& S, int lbl_empty, AAB<3, int> sub)
+{
+  int num = 0;
+  v3i cri = sub.minCorner();
+  v3i cra = sub.maxCorner();
+  ForRange(k, cri[2] + 1, cra[2] - 1) {
+    ForRange(j, cri[1] + 1, cra[1] - 1) {
+      ForRange(i, cri[0] + 1, cra[0] - 1) {
+        if (!S.at(i, j, k)[lbl_empty]) num++;
+      }
+    }
+  }
+  return num;
+}
+
+/* -------------------------------------------------------- */
+
 // Main synthesis function
 // Performs synthesis within the sub domain given as a box, or the full domain
 // if no sub domain is specified.
 // Returns true on success, false otherwise (i.e. constraints cannot be resolved).
 // The domain is changed, even on failure. Caller is responsible for restoring it.
+// After a success _num_solids contains the number of synthesized non empty labels.
 bool synthesize(
   Array3D<Presence>& S,
+  int lbl_empty, int& _num_solids,
   AAB<3, int> sub = AAB<3, int>())
 {
   // buffer for choices
@@ -404,6 +424,7 @@ bool synthesize(
 
   // starting
   int num_choices = 0;
+  _num_solids = 0;
 
   // randomize scanline order
   int order[] = { 0, 1, 2 };
@@ -463,6 +484,9 @@ bool synthesize(
     int c = choices[r];
     S.at(cur[0], cur[1], cur[2]).fill(false);
     S.at(cur[0], cur[1], cur[2]).set(c,true);
+    if (c != lbl_empty) {
+      _num_solids ++;
+    }
 
     // propagate this change
     bool ok = propagateConstraints(cur[0], cur[1], cur[2], S);
@@ -723,7 +747,7 @@ void solve3D()
   int num_failed    = 0;
   int num_success   = 0;
   int num_passes    = 2*sz; /// increases on larger domains.
-  int num_sub_synth = 32;
+  int num_sub_synth = 64;
   ForIndex(p, num_passes) {
     ForIndex(n, num_sub_synth) {
       // random size
@@ -739,11 +763,17 @@ void solve3D()
       // backup current
       Array3D<Presence> backup = S;
       // try reseting the subdomain (may fail)
+      int num_solids_before = num_solids_sub(S, pal2id[255]/*empty*/, sub);
       if (reinit_sub(S, pal2id[255], sub)) {
         // try synthesizing (may fail)
-        if (synthesize(S, sub)) {
-          // success!
-          num_success++;
+        int num_solids;
+        if (synthesize(S, pal2id[255]/*empty*/, num_solids, sub)) {
+          if (num_solids >= num_solids_before) {
+            num_success++;
+          } else {
+            num_failed++;
+            S = backup;
+          }
         } else {
           // synthesis failed: retry
           num_failed++;
