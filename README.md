@@ -91,7 +91,7 @@ Can you generate other fully walkable cases?
 
 For more details on model synthesis:
 - http://graphics.stanford.edu/~pmerrell/ (Example-Based Model Synthesis paper which introduces the core ideas)
-- https://github.com/mxgmn/WaveFunctionCollapse (Many details, full implementation with a nice visualization. Very inspiring so definitely check it out!)
+- https://github.com/mxgmn/WaveFunctionCollapse (Detailed explanations, extends model synthesis in several ways, full implementation with a nice visualization. Very inspiring so definitely check it out!)
  
 ## Limitations
 - All labels are currently equiprobable (will be updated soon)
