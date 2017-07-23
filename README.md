@@ -14,7 +14,7 @@ A simple, efficient, easily hackable C++ implementation of 3d model synthesis / 
 - Input files are in subdir exemplars/
 - Output is produced in subdir results/
 
-## Constraints
+## Constraints (quick tutorial)
 
 The input exemplar is made of 8 bit voxels (0-255), colored by a palette. This conveniently fits voxel editors such as MagicaVoxel. Each index is a 'label' and will later be replaced by a 3D tile. When two voxels are side by side in the input, they are allowed to be neighboring in the same configuration in the output. Everything else is disallowed. This provides the set of constraints. A special label means 'empty' (index 255) and another 'ground' (index 254).
 
@@ -62,7 +62,7 @@ Now we will give it a better 3D flavor, by introducing horizontal bars in the ot
 	<img src="images/blog5_synth.jpg" width=200>
 </p>
 
-Interesting, but these long red bars do not look too good. Let's modify the exemplar to prevent red from stacking upon itself -- which will only allow vertical bars of size one. To do this, I created in the exemplar the stacking I am expecting if only bars of one red are allowed.
+Interesting, but these long red bars do not look too good. Let's modify the exemplar to prevent red from stacking upon itself, which will restrict vertical bars to length one. To do this, I create in the exemplar the stacking I am expecting, ensuring red does not appear above itself.
 
 <p align="center">
 	<img src="images/blog6_ex.jpg" width=200>
