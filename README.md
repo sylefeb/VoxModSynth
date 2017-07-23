@@ -4,6 +4,8 @@ A simple, efficient, easily hackable C++ implementation of 3d model synthesis / 
 Sylvain Lefebvre 
 @sylefeb
 
+![A 3D printed, fully walkable, self-supporting castle](images/towers_1.jpg?raw=true "A 3D printed, fully walkable, self-supporting castle")
+
 ## Input / output
 
 - The expected voxel format for inputs is '.slab.vox' as exported by MagicaVoxel (https://ephtracy.github.io/)
