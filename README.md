@@ -82,7 +82,7 @@ Can you generate other fully walkable cases?
 ## References
 
 For more details on model synthesis:
-- http://graphics.stanford.edu/~pmerrell/ (Example-Based Model Synthesis)
+- http://graphics.stanford.edu/~pmerrell/ (Example-Based Model Synthesis paper which introduces the core ideas)
 - https://github.com/mxgmn/WaveFunctionCollapse (many details, full implementation with a very nice visualization, inspired me to work again on this)
  
 ## Limitations
