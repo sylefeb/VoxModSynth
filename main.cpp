@@ -36,7 +36,7 @@ Copyright 2017, Sylvain Lefebvre
 Permission is hereby granted, free of charge, to any person obtaining a copy 
 of this software and associated documentation files(the "Software"), to deal 
 in the Software without restriction, including without limitation the rights 
-to use, copy, modify, merge, publish, distribute, sublicense, and / or sell 
+to use, copy, modify, merge, publish, distribute, sub-license, and / or sell 
 copies of the Software, and to permit persons to whom the Software is furnished 
 to do so, subject to the following conditions :
 
@@ -107,7 +107,7 @@ const int      n_bottom = 3;
 const int      n_below = 4;
 const int      n_above = 5;
 
-// constraint bitfield for each label pairs
+// constraint bit-field for each label pairs
 // (e.g. constraints.at(2,5) = axis_x means label 2 can have 5 on its right)
 Array2D<uchar> constraints;
 // same as above under a different form allowing for faster checks
@@ -208,7 +208,7 @@ inline void andEq(Presence& a, const Presence& b)
 /* -------------------------------------------------------- */
 
 // Updates the set of possible labels at a given site (voxel i,j,k), considering the n-th neighbor.
-// Returns whether something changed, and whether all labels disappeared due to over-constrtaints (failed).
+// Returns whether something changed, and whether all labels disappeared due to over-constraints (failed).
 // This is a local update used in the global 'propagateConstraints' function below.
 void updateConstraintsAtSite(int i, int j, int k, int n, Array3D<Presence>& _S, bool& _changed, bool& _failed)
 {
@@ -328,7 +328,7 @@ bool init_global_soup(Array3D<Presence>& S,int lbl_empty = -1)
 
 /* -------------------------------------------------------- */
 
-// Initializes the domain with an empty assignement.
+// Initializes the domain with an empty assignment.
 // If lbl_ground is given, a ground is created on z == 0
 bool init_global_empty(Array3D<Presence>& S, int lbl_empty,int lbl_ground=-1)
 {
@@ -346,7 +346,7 @@ bool init_global_empty(Array3D<Presence>& S, int lbl_empty,int lbl_ground=-1)
 
 /* -------------------------------------------------------- */
 
-// Resets a subdomain with an empty soup. The border is preserved and
+// Resets a sub-domain with an empty soup. The border is preserved and
 // constraints are propagated inside.
 // Returns true on success, false otherwise (i.e. constraints cannot be resolved).
 // The domain is changed, even on failure. Caller is responsible for restoring it.
@@ -717,7 +717,7 @@ void saveAsVoxDetailed(
 // This is using the basic building blocks above.
 // The approach used here is similar to Paul Merrell's model
 // synthesis: it starts empty and attempts to synthesize within
-// subdomains. This works best on difficult problems. 
+// sub-domains. This works best on difficult problems. 
 // WFC is also possible by synthesizing within the entire domain.
 //
 // Some of the constants below (number of iterations, etc.) could
