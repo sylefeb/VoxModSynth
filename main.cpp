@@ -6,8 +6,8 @@
 // - the expected voxel format is '.slab.vox' as exported by MagicaVoxel
 // - the output can be directly imported into MagicaVoxel
 //   (use MagicaVoxel viewer for larger outputs, as MagicaVoxel clamps to 128^3)
-// - pallete indices are used as tile ids (labels).
-// - pallete index 255 is empty, 254 is ground.
+// - palette indices are used as tile ids (labels).
+// - palette index 255 is empty, 254 is ground.
 // - input files are in subdir exemplars/
 // - output is produced in subdir results/
 //    results/synthesized.slab.vox is the synthesized labeling
@@ -18,7 +18,7 @@
 // - https://github.com/mxgmn/WaveFunctionCollapse
 // 
 // The goal is to keep it short, efficient, and (relatively) clear.
-// Shamelessely uses globals.
+// Shamelessly uses globals.
 //
 // Enjoy!
 //
