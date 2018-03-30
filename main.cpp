@@ -173,7 +173,7 @@ private:
   uint m_Values[c_MaxLabelFields];
 public:
   Presence() { }
-  Presence& operator = (const Presence& p) { memcpy(m_Values, p.m_Values, c_MaxLabelFields * sizeof(uint)); return *this; }
+  Presence&  operator = (const Presence& p) { memcpy(m_Values, p.m_Values, c_MaxLabelFields * sizeof(uint)); return *this; }
   const bool operator[](int n) const   { return (m_Values[n >> s_PowNumBits] >> (n & s_ModNumBits)) & 1; }
   void       set(int n, bool b) { 
     if (b) { m_Values[n >> s_PowNumBits] |=   1 << (n & s_ModNumBits); } 
@@ -191,7 +191,7 @@ public:
 
 inline bool isFalse(const Presence& a)
 {
-  ForIndex(i, num_lbls) { if (a[i] > 0.0f) return false; }
+  ForIndex(i, num_lbls) { if (a[i]) return false; }
   return true;
 }
 
@@ -213,9 +213,9 @@ inline void andEq(Presence& a, const Presence& b)
 void updateConstraintsAtSite(int i, int j, int k, int n, Array3D<Presence>& _S, bool& _changed, bool& _failed)
 {
   if (!periodic) {
-    if ((i + neighs[n][0] < 0 || i + neighs[n][0] >= _S.xsize())
-      || (j + neighs[n][1] < 0 || j + neighs[n][1] >= _S.ysize())
-      || (k + neighs[n][2] < 0 || k + neighs[n][2] >= _S.zsize())) {
+    if ( (i + neighs[n][0] < 0 || i + neighs[n][0] >= (int)_S.xsize())
+      || (j + neighs[n][1] < 0 || j + neighs[n][1] >= (int)_S.ysize())
+      || (k + neighs[n][2] < 0 || k + neighs[n][2] >= (int)_S.zsize())) {
       // out of domain, nothing changes
       _changed = false;
       _failed = false;
@@ -228,7 +228,7 @@ void updateConstraintsAtSite(int i, int j, int k, int n, Array3D<Presence>& _S, 
   ForIndex(l1, num_lbls) {
     if (_S.at(i, j, k)[l1]) {
       bool allowed = false;
-      int num = allowed_by_side[n][l1].size();
+      int num = (int)allowed_by_side[n][l1].size();
       ForIndex(t, num) {
         int l2 = allowed_by_side[n][l1][t];
         allowed = allowed || from_neigh[l2];
@@ -467,9 +467,9 @@ bool synthesize(
       }
     }
 
-    sl_assert(cur[0] > -1 && cur[0] < S.xsize());
-    sl_assert(cur[1] > -1 && cur[1] < S.ysize());
-    sl_assert(cur[2] > -1 && cur[2] < S.zsize());
+    sl_assert(cur[0] > -1 && cur[0] < (int)S.xsize());
+    sl_assert(cur[1] > -1 && cur[1] < (int)S.ysize());
+    sl_assert(cur[2] > -1 && cur[2] < (int)S.zsize());
 
     // which choices do we have here?
     num_choices = 0;
@@ -552,7 +552,7 @@ void load3DProblem(const char *fname)
     uchar lbl = grid.at(i, j, k);
     labels.insert(lbl);
   }
-  num_lbls = labels.size();
+  num_lbls = (int)labels.size();
   int id = 0;
   for (uchar l : labels) {
     pal2id[l] = id;
@@ -816,7 +816,7 @@ int main(int argc, char **argv)
   try {
 
     // random seed
-    srand(time(NULL));
+    srand((unsigned int)time(NULL));
     
     // let's synthesize!
     std::cerr << Console::white << "Synthesizing a voxel model!" << Console::gray << std::endl << std::endl;
