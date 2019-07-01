@@ -3,8 +3,9 @@ project(VoxModSynth)
 
 include_directories(
   ./
-  ${PROJECT_SOURCE_DIR}/libsl-small
-  ${PROJECT_SOURCE_DIR}/libsl-small/LibSL
+  ${PROJECT_SOURCE_DIR}/LibSL-small
+  ${PROJECT_SOURCE_DIR}/LibSL-small/src/
+  ${PROJECT_SOURCE_DIR}/LibSL-small/src/LibSL  
 )
 
 link_directories(
@@ -16,10 +17,10 @@ add_definitions(-DSRC_PATH=\"${CMAKE_SOURCE_DIR}/\")
 
 SET(SOURCES
   main.cpp
-  libsl-small/LibSL/Math/Math.cpp
-  libsl-small/LibSL/Math/Vertex.cpp
-  libsl-small/LibSL/System/System.cpp
-  libsl-small/LibSL/CppHelpers/CppHelpers.cpp
+  LibSL-small/src/LibSL/Math/Math.cpp
+  LibSL-small/src/LibSL/Math/Vertex.cpp
+  LibSL-small/src/LibSL/System/System.cpp
+  LibSL-small/src/LibSL/CppHelpers/CppHelpers.cpp
 )
 
 add_executable(VoxModSynth ${SOURCES})
