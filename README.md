@@ -14,6 +14,18 @@ A simple, efficient, easily hackable C++ implementation of 3d model synthesis / 
 - Input files are in subdir exemplars/
 - Output is produced in subdir results/
 
+## Compiling
+
+Clone the main repo, then enter the directory and type:<br>
+```
+git submodule init
+git submodule update
+cmake .
+make
+```
+
+Tested with Viusal Studio 2017 and gcc 6.2.1
+
 ## Constraints (quick tutorial)
 
 The input exemplar is made of 8 bit voxels (0-255), colored by a palette. This conveniently fits voxel editors such as MagicaVoxel. Each index is a 'label' and will later be replaced by a 3D tile. When two voxels are side by side in the input, they are allowed to be neighboring in the same configuration in the output. Everything else is disallowed. This provides the set of constraints. A special label means 'empty' (index 255) and another 'ground' (index 254).
